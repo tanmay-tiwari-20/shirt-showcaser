@@ -3,8 +3,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useSnapshot } from "valtio";
 
 import state from "../store";
-import { download } from "../assets";
-import { reader } from "../config/helpers";
+import { download,  } from "../assets";
+import { reader, downloadCanvasToImage } from "../config/helpers";
 import { EditorTabs, FilterTabs, DecalTypes } from "../config/constants";
 import { fadeAnimation, slideAnimation } from "../config/motion";
 import {
@@ -128,6 +128,14 @@ const Customizer = () => {
               />
             ))}
           </motion.div>
+          {/* Download button */}
+          <button className='download-btn' onClick={downloadCanvasToImage}>
+              <img
+                src={download}
+                alt='download_image'
+                className='w-3/5 h-3/5 object-contain'
+              />
+            </button>
         </>
       )}
     </AnimatePresence>
